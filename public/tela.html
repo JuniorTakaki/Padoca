@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/imgs/favicon.ico.png" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Padoca Nália</title>
+   
+</head>
+<body class="bg-yellow-100">
+    <nav class="bg-yellow-100 py-8 flex align-middle text-2xl justify-between md:justify-evenly">
+        <!-- Favicon na esquerda, visível apenas em telas menores -->
+        <ul class="hidden md:flex">
+            <li><img src="/imgs/favicon.ico.png" alt="logo" class="mx-10"></li>
+        </ul>
+        <!-- Itens do menu centralizados -->
+        <ul class="mx-1 flex justify-center md:justify-center md:flex-1 w-full  gap-x-10    ">
+            <li><a href="#" class="text-yellow-900 hover:text-yellow-200 font-semibold text-4xl">Ínicio</a></li>
+            <li><a href="#" class="text-yellow-900 hover:text-yellow-200 font-semibold text-4xl">Plano</a></li>
+            <li><a href="#" class="text-yellow-900 hover:text-yellow-200 font-semibold text-4xl">Ajuda</a></li>
+        </ul>
+        <!-- Botão "Sign out" visível apenas em telas maiores -->
+        <ul>
+            <li><a href="/index" class="text-yellow-900 font-semibold text-3xl hover:text-yellow-200 hidden xl:flex mx-10">Sign out</a></li>
+        </ul>
+    </nav>    
+    
+    <header class="container mx-auto flex flex-col md:flex-row items-center justify-between py-12 px-4 ">
+        <div class="max-w-lg">
+            <h1 class="text-yellow-900 text-4xl font-bold mb-4">Padoca Nália</h1>
+            <p class="text-yellow-900 text-lg">Na Panificadora Padoca Nália, cada mordida é uma experiência artesanal. Nossos pães frescos, bolos irresistíveis e atendimento caloroso garantem momentos memoráveis. Venha descobrir o verdadeiro sabor da tradição.</p>
+        </div>
+        <div class="max-w-lg">
+            <img src="/imgs/transparent-bread-hard-dough-bread-potato-bread-loaf-food-breaking-the-bread-line-oost-com5e6f2c447c2fc2.1576646315843441325087.png" alt="Bakery Image" class="w-full md:w-auto mx-auto mt-8 md:mt-0">
+        </div>
+    </header>
+
+    <section class="container mx-auto py-12 px-4">
+        <h2 class="text-yellow-900 text-3xl font-semibold mb-6 text-center">Planos</h2>
+        <p class="text-yellow-900 text-lg text-center mb-8">Melhores planos para a sua empresa</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-yellow-300 text-yellow-900 p-6 rounded-3xl">
+                <h4 class="text-xl font-bold mb-4">Plano Básico</h4>
+                <!-- Conteúdo do plano básico aqui -->
+                <p class="mb-4">
+                    <span>Pães Frescos</span> - Opções: Pão de forma integral, Pão francês tradicional (1 por pessoa)
+                </p>
+                <p class="mb-4">
+                    <span>Biscoitos e Frutas</span> - Opções: Biscoito integral de aveia, Biscoito de chocolate meio amargo (2 por pessoa)
+                </p>
+                <p class="mb-4">
+                    <span>Confeitaria</span> - Opções: Croissant simples, Croissant com chocolate belga (1 por pessoa)
+                </p>
+                <p class="mb-4">
+                    <span>Bebida</span> - Opções: Suco de laranja, Café com Leite (1 por pessoa)
+                </p>
+                <p class="text-xl font-semibold">
+                    Preço: R$ 15 por pessoa/dia
+                </p>
+                <!-- Botão para abrir o popup -->
+                <button class="btn bg-yellow-100 text-gray-900 px-4 py-2 rounded-full mt-4" onclick="openPopup()">Cadastrar Cartão</button>
+            </div>
+
+        <div id="popup" class="fixed inset-0  items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white  rounded-lg " p-8 mx-auto w-4/12">
+                <h2 class="text-xl font-bold mb-8 flex justify-center">Adicionar Cartão</h2>
+
+            <form id="cartao-form" class="max-w-md mx-1 mb-8 ">
+                <div class="mb-6">
+                    <label for="numero" class="block text-sm font-medium text-gray-700 ml-2">Número do Cartão</label>
+                    <input type="text" id="numero" name="numero" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-6">
+                    <label for="nome" class="block text-sm font-medium text-gray-700 ml-2">Nome no Cartão</label>
+                    <input type="text" id="nome" name="nome" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="validade" class="block text-sm font-medium text-gray-700 ml-2">Data de Validade</label>
+                    <input type="text" id="validade" name="validade" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label for="cvv" class="block text-sm font-medium text-gray-700 ml-2">CVV</label>
+                    <input type="text" id="cvv" name="cvv" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+            </div>
+
+                <!-- Campos de Endereço -->
+                <div class="mb-6">
+                    <label for="estado" class="block text-sm font-medium text-gray-700 ml-2">Estado</label>
+                    <input type="text" id="estado" name="estado" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-6">
+                    <label for="cidade" class="block text-sm font-medium text-gray-700 ml-2">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-6">
+                    <label for="endereco" class="block text-sm font-medium text-gray-700 ml-2">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="mb-6">
+                    <label for="cep" class="block text-sm font-medium text-gray-700 ml-2">CEP</label>
+                    <input type="text" id="cep" name="cep" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="mb-6">
+                    <label for="cep" class="block text-sm font-medium text-gray-700 ml-2">Número da casa</label>
+                    <input type="text" id="cep" name="cep" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+            </div>
+                    <!-- Outros campos de endereço podem ser adicionados aqui -->
+                 <div class="flex justify-end mt-6">
+                    <button type="button" class="btn bg-green-500 text-white px-4 py-2 rounded-md mr-2" onclick="closePopup()">Cancelar</button>
+                    <button type="submit" class="btn bg-green-500 text-white px-4 py-2 rounded-md mr-2">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+            
+
+            
+   <div class="bg-yellow-300 text-yellow-900 p-6 rounded-3xl ">
+                <h4 class="text-xl font-bold mb-4">Plano Intermediário</h4>
+                <!-- Conteúdo do plano intermediário aqui -->
+                    <p class="mb-4">
+                        
+                        <span>Confeitaria</span> - Opções: Croissant recheado de queijo brie, Donut gourmet de framboesa (1 por pessoa)
+                    </p>
+                    <p class="mb-4">
+                        <span>Bebidas</span> - Opções: Chá de camomila, Suco de laranja natural (1 por pessoa)
+                    </p>
+                    <p class="mb-4">
+                        
+                        <span>Granola e Iogurte</span> - Opções: Granola orgânica com frutas secas, Iogurte grego tradicional (1 por pessoa)
+                    </p>
+                    <p class="mb-4">
+                        <span>Pães Frescos</span> - Opções: Pão integral de grãos, Baguete artesanal de ervas finas (1 por pessoa)
+                    </p>
+                    <p class="text-xl font-semibold">
+                        Preço: R$ 20 por pessoa/dia
+                    </p>
+                    <button class="btn bg-yellow-100 text-gray-900 px-4 py-2 rounded-full mt-4" onclick="openPopup()">Cadastrar Cartão</button>
+            </div>
+
+            <div class="bg-yellow-300 text-yellow-900 p-6 rounded-3xl ">
+                <h4 class="text-xl font-bold mb-4">Plano Premium</h4>
+                <!-- Conteúdo do plano premium aqui -->
+                    <p class="mb-4">
+                        Todos os Benefícios
+                    </p>
+                    <p class="mb-4">
+                        Personalização (complementar)
+                    </p>
+                    <p class="mb-4">
+                        Entrega Expressa (garantida)
+                    </p>
+                    <p class="mb-4">
+                        Atendimento Prioritário
+                    </p>
+                    <p class="mb-4">
+                        Confeitaria (1 item por pessoa) - Opções: Croissant gourmet de amêndoas, Bolo de cenoura com cobertura de cream cheese
+                    </p>
+                    <p class="mb-4">
+                        Pães Frescos (1 unidade por pessoa) - Opções: Pão multigrãos com sementes, Ciabatta italiana artesanal
+                    </p>
+                    <p class="text-xl font-semibold">
+                        Preço: R$ 28 por pessoa/dia
+                    </p>
+                    <button class="btn bg-yellow-100 text-gray-900 px-4 py-2 rounded-full mt-4" onclick="openPopup()">Cadastrar Cartão</button>
+                </div>
+
+                <div class="bg-yellow-300 text-yellow-900 p-6 rounded-3xl ">
+                <h4 class="text-xl font-bold mb-4">Plano Avulso</h4>
+                <!-- Conteúdo do plano avulso aqui -->
+                    <p class="mb-4 flex items-center">
+                        Acesso à loja online da padaria.
+                    </p>
+                    <p class="mb-4 flex items-center">
+                        Desconto exclusivo em produtos selecionados, como pães de forma, bolos simples e cookies.
+                    </p>
+                    <p class="mb-4 flex items-center">
+                        Recebimento de ofertas especiais por e-mail.
+                    </p>
+                    <p class="flex items-center">
+                        Atendimento ao cliente prioritário por e-mail.
+                    </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto py-12 px-4">
+        <h2 class="text-yellow-900 text-3xl font-semibold mb-6 text-center">Ajuda</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Entrega direta na sua empresa</h4>
+                <p>Receba seus produtos direto na sua empresa.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Crie seu próprio cardápio</h4>
+                <p>Monte seu próprio cardápio.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Agende a hora de entrega</h4>
+                <p>Agende a hora de entrega.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Pagamento flexível</h4>
+                <p>Pagamento no cartão de débito, crédito e PIX.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Serviço de catering disponível</h4>
+                <p>Oferecemos serviço de catering para eventos.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Descontos especiais para grandes encomendas</h4>
+                <p>Descontos especiais para grandes encomendas.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Serviço de atendimento ao cliente 24/7</h4>
+                <p>Atendimento ao cliente disponível 24 horas por dia, 7 dias por semana.</p>
+            </div>
+            <div class="bg-yellow-300 text-yellow-900 p-6  rounded-lg">
+                <h4 class="text-xl font-semibold mb-4">Opções de embalagem personalizada</h4>
+                <p>Oferecemos opções de embalagem personalizada para suas encomendas.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-yellow-500 text-yellow-900 py-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-semibold">
+                <div class="ml-3">
+                    <h5 class="text-xl font-semibold mb-4">Informações</h5>
+                    <ul>
+                        <li><a href="#" class="hover:text-yellow-200">Sobre nós</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Termos e Condições</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="ml-3">
+                    <h5 class="text-xl font-semibold mb-4">Atendimento ao Cliente</h5>
+                    <ul>
+                        <li><a href="#" class="hover:text-yellow-200">Contato</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Devoluções</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Como Comprar</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Entrega</a></li>
+                    </ul>
+                </div>
+                <div class="ml-3">
+                    <h5 class="text-xl font-semibold mb-4">Redes Sociais</h5>
+                    <ul>
+                        <li><a href="#" class="hover:text-yellow-200">Facebook</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Instagram</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Twitter</a></li>
+                        <li><a href="#" class="hover:text-yellow-200">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8 font-semibold text-sm">
+            <p>&copy;2024 Padoca Nália. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+<script>
+
+    let popup = document.getElementById("popup");
+
+    // Oculta o popup ao carregar a página
+    popup.style.display = "none";
+
+    function openPopup() {
+        popup.style.display = "flex";
+        // Centraliza o popup
+        popup.classList.add("justify-center");
+        popup.classList.add("items-center");
+    }
+
+    function closePopup() {
+        popup.style.display = "none";
+        // Remove as classes de centralização
+        popup.classList.remove("justify-center");
+        popup.classList.remove("items-center");
+    }
+
+    
+</script>
+    
+</body>
+</html>
+
+<!-- tela do site -->

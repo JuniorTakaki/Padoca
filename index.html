@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="/imgs/favicon.ico.png" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-cover bg-center bg-fixed bg-opacity-50 blur-2xl" style="background-image: url('https://img.freepik.com/fotos-premium/padaria-vegana-organica-e-ecologica-turva-com-piso-em-parquet-de-parede-de-madeira-generative-ai_887552-3947.jpg');">
+    <!-- Formulário de login -->
+    <div class="login-form-container absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-96  max-w-96">
+        <form id="loginForm" class="mb-8" action="/loginUser" method="POST">
+            <h2 class="text-2xl font-semibold mb-4 text-yellow-900">Login</h2>
+            <div class="mb-4">
+                <label for="email" class="block text-yellow-900 mb-2">Email</label>
+                <input type="email" id="email" name="email" class="input-field border-yellow-300 border-solid border-2 rounded-md p-3 w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-yellow-900 mb-2">Password</label>
+                <div class="relative">
+                    <input type="password" id="password" name="password" class="input-field  border-yellow-300 border-solid border-2 rounded-md p-3 w-full" minlength="6" required>
+                    <button type="button" id="togglePasswordVisibilityBtn" class="absolute top-0 right-0 mt-3 mr-4" onclick="togglePasswordVisibility()">
+                        <img id="eyeIcon" class="h-6 w-6 text-gray-500 hover:text-gray-700" src="https://img.icons8.com/material-rounded/24/000000/invisible--v1.png" alt="Visualizar Senha">
+                    </button>
+                    <!-- Adicione este trecho ao seu formulário de login, logo abaixo do botão de submit -->
+                    <div class="text-center mt-4">
+                        <p><a href="/recover" class="text-yellow-500 font-semibold">Esqueceu a senha?</a></p>
+                    </div>
+                </div>
+            </div>
+            <input type="submit"  class="button-primary bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md w-full">
+            <span id="error-message" class="hidden text-red-500"></span>
+        </form>
+        
+        <!-- Link para registro -->
+        <div class="text-center">
+            <p>Não tem uma conta? <a href="/register" class="text-yellow-500 font-semibold">Fazer Registro</a></p>
+        </div>
+    </div>
+
+    <script>
+        
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = document.getElementById('eyeIcon');
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.src = "https://img.icons8.com/material-rounded/24/000000/visible--v1.png";
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.src = "https://img.icons8.com/material-rounded/24/000000/invisible--v1.png";
+        }
+    }
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- Owner Project Armando Setsuo Takaki Junior 
+Github: Juniortakaki
+linkedin Armando Setsuo Takaki Junior
+  -->
